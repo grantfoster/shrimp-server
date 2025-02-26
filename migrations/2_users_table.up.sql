@@ -1,3 +1,3 @@
 create table users (
-  id UUID
+  id UUID primary key
 );
