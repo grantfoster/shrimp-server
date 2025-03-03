@@ -26,6 +26,14 @@ and/or use netcat to write messages to udp and see them in your server stdout.
 
 ```nc -u localhost 6666```
 
+## current features 😎
+- (server) unauthenticated listeners on port 6666 (udp) and 7777 (http)
+- (server) handlers that simply log incoming udp messages or http requests at /ping
+- (server) configurable logger
+- (management) executable for automated db migration using golang-migrate
+- (management) executable to generate a new clean migration file
+- (management) sqlc to generate clean golang code to perform queries
+
 📝
 ## db & migrations 🦜
 
