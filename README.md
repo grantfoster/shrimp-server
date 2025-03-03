@@ -1,4 +1,4 @@
-# shrimp-server
+# shrimp-server 🦐
 
 practicing being serious coder by making a multiplayer game server framework
 
