@@ -4,6 +4,3 @@ insert into users (
 ) values (
   $1
 ) returning id;
-
--- name: ListUsers :many
-SELECT * FROM donkeys;
