@@ -9,7 +9,7 @@ import (
 )
 
 const (
-	Address      = "127.0.0.1"
+	Address      = "localhost"
 	ListenerPort = 6666
 	TickRate     = 1 // how many minimum updates per second
 )

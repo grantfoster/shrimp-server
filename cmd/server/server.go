@@ -8,8 +8,8 @@ import (
 	"time"
 
 	"github.com/grantfoster/shrimp-server/app/helpers"
-	"github.com/grantfoster/shrimp-server/app/server/httpserver"
-	"github.com/grantfoster/shrimp-server/app/server/udpserver"
+	"github.com/grantfoster/shrimp-server/app/servers/httpserver"
+	"github.com/grantfoster/shrimp-server/app/servers/udpserver"
 	"github.com/joho/godotenv"
 )
 
