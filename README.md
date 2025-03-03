@@ -4,13 +4,14 @@ practicing being serious coder by making a multiplayer game server framework
 
 ## prerequisites ‼️
 
-go 1.24.0
+go 1.24.0 
+
 postgresql db with db named "shrimp_server"
 
 ## initial setup for local dev 💻
 
 1. first things first blast off a ```go mod tidy``` to grab all deps
-2. ```go run ./cmd/migrate/``` to migrate that "shrim_server" db up
+2. ```go run ./cmd/migrate/``` to migrate that "shrimp_server" db up
 3. smash ```go run ./cmd/server/``` to start the bad boy
 
 you can now use postman or curl to hit /ping and netcat to write messages to udp and see them in your server stdout.
