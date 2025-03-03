@@ -70,6 +70,7 @@ no copied ai codegen
     * (all this does is make a valid) prefixed file to create an sql migration in
 
 ### weekend 3
+* postgresql_lsp documented and using env vars perhaps?
 * change from unix socket in db to userpass
 * make into a package rather than just a go program
 * write dummy simple udp server for text chat with no auth
