@@ -7,9 +7,9 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/grantfoster/shrimp-server/app/helpers"
-	"github.com/grantfoster/shrimp-server/app/servers/httpserver"
-	"github.com/grantfoster/shrimp-server/app/servers/udpserver"
+	"github.com/grantfoster/shrimp-server/internal/helpers"
+	"github.com/grantfoster/shrimp-server/internal/servers/httpserver"
+	"github.com/grantfoster/shrimp-server/internal/servers/udpserver"
 	"github.com/joho/godotenv"
 )
 
