@@ -1,23 +1,40 @@
-# shrimp-server
+# shrimp-server 🦐
 
 practicing being serious coder by making a multiplayer game server framework
 
 ## prerequisites ‼️
 
-go 1.24.0 
+go 1.24.0 - https://go.dev/doc/install
 
-postgresql db with db named "shrimp_server"
+postgresql db with db named "shrimp_server" - https://www.postgresql.org/download/
 
-## initial setup for local dev 💻
+## getting started 💻
 
-1. first things first blast off a ```go mod tidy``` to grab all deps
-2. ```go run ./cmd/migrate/``` to migrate that "shrimp_server" db up
-3. smash ```go run ./cmd/server/``` to start the bad boy
+1. first things first blast off a ```go mod download``` to use go to grab all deps
+2. ```go run ./cmd/migrate/``` to migrate that "shrimp_server" db up using golang-migrate. (no database interaction happens yet).
+3. smash ```go run ./cmd/server/``` to start the bad boy.
 
-you can now use postman or curl to hit /ping and netcat to write messages to udp and see them in your server stdout.
+**so far, i have two simple examples up that the server will respond to by logging messages to stdout.**
+
+once the server is running you should see messages confirming the ports it is listening on. 
+
+you can now use postman or curl to hit /ping on http like so:
+
 ```curl localhost:7777/ping```
+
+and/or use netcat to write messages to udp and see them in your server stdout.
+
 ```nc -u localhost 6666```
 
+## current features 😎
+- (server) unauthenticated listeners on port 6666 (udp) and 7777 (http)
+- (server) handlers that simply log incoming udp messages or http requests at /ping
+- (server) configurable logger
+- (management) executable for automated db migration using golang-migrate
+- (management) executable to generate a new clean migration file
+- (management) sqlc to generate clean golang code to perform queries
+
+📝
 ## db & migrations 🦜
 
 again, you'll need a psql running with a db name of "shrimp_server". we use this db for long lived data such as user profiles or session info.
@@ -31,9 +48,9 @@ we use golang-migrate to manage our db and then we use sqlc to generate beautifu
     - run ```sqlc generate``` from project root.
     - use cool code in project
 
-## project notes
+## project notes 📝
 ~~no ai allowed~~
-note: god damnit that didn't last long. how about this:
+note: damnit that didn't last long. how about this:
 no copied ai codegen
 
 - research big names and figure out mvp
@@ -41,7 +58,7 @@ no copied ai codegen
 - must be testable every step of the way
     - coming soon lol
 
-### general goals
+### general goals ⚽️
 1. write a multiplayer game server framework with go called "shrimp-server"
     * uses udp/grpc/websockets do we even want REST?
     * try to keep it general/agnostic for multiple game engines
@@ -61,16 +78,16 @@ no copied ai codegen
     * one or more multiplayer minigames - GAMBLING ASAP
     * stream a simple show over rtmp/obs to an ingame "cinema" with a few clients watching
 
-### weekend 1 - done
+### weekend 1 - done ✅
 * write a server and use netcat and postman to test. connect them via udp/tcp and send text messages between them.
 
-### weekend 2 - done
+### weekend 2 - done ✅
 * setup migrations for psql
 * setup sqlc for db interactions
 * set up script for generating new sequential migrations 
     * (all this does is make a valid) prefixed file to create an sql migration in
 
-### weekend 3
+### weekend 3 - todo
 * postgresql_lsp documented and using env vars perhaps?
 * change from unix socket in db to userpass
 * make into a package rather than just a go program
