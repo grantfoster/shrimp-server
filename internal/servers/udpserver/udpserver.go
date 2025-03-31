@@ -15,6 +15,9 @@ const (
 )
 
 func ListenUDP() {
+	// ctx := context.Background()
+	// cacheClient := cache.GetInstance()
+
 	addr := net.UDPAddr{
 		Port: ListenerPort,
 		IP:   net.ParseIP(Address),

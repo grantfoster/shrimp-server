@@ -2,34 +2,17 @@ package httpserver
 
 import (
 	"fmt"
-	"io"
 	"log/slog"
 	"net/http"
+
+	"github.com/grantfoster/shrimp-server/internal/servers/httpserver/routes"
 )
 
 const Port = 7777
 
 func ListenHttp() {
-	http.HandleFunc("/ping", func(w http.ResponseWriter, r *http.Request) {
-		// Read the request body
-		body, err := io.ReadAll(r.Body)
-		if err != nil {
-			http.Error(w, "Error reading request body", http.StatusBadRequest)
-			return
-		}
-		defer r.Body.Close()
-
-		slog.Info("http request received", "body", string(body))
-
-		// Send a response
-		w.WriteHeader(http.StatusOK)
-		w.Header().Set("Content-Type", "text/plain")
-		_, err = w.Write([]byte("pong"))
-		if err != nil {
-			slog.Error("Error writing response:", "err", err)
-		}
-	})
-
+	mux := http.NewServeMux()
+	routes.RegisterRoutes(mux)
 	slog.Info("started http server", "port", Port)
-	http.ListenAndServe(fmt.Sprintf(":%v", Port), nil)
+	http.ListenAndServe(fmt.Sprintf(":%v", Port), mux)
 }
